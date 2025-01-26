@@ -64,15 +64,21 @@ const CustomForm = () => {
       validationSchema={validationSchema}
       onSubmit={(values) => showFieldsData(values)}
     >
-      {() => (
+      {({ isValid }) => (
         <Form className="w-[600px] flex flex-col gap-1">
           {renderFields()}
           <div className="flex justify-between ">
-            <FormikRadio name="justNumber" label="Выберите любое число" options={["1", "2", "3"]} />
+            <FormikRadio
+              name="justNumber"
+              label="Выберите любое число"
+              options={["1", "2", "3"]}
+            />
             <FormikCheckBox name="agree" label="Согласен с условиями" />
           </div>
-          
-          <Button type="submit">Сохранить</Button>
+
+          <Button type="submit" disabled={!isValid}>
+            Сохранить
+          </Button>
         </Form>
       )}
     </Formik>

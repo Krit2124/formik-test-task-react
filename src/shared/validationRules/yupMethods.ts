@@ -1,9 +1,9 @@
 import { addMethod, number } from 'yup';
 
-addMethod(number, "moreThanSumOfFields", function (fields: string[]) {
+addMethod(number, "moreThanSumOfFields", function (fields: string[], message: string) {
   return this.test(
     "more-than-sum",
-    "Общая площадь должна быть больше суммы жилой площади и площади кухни",
+    message,
     function (value) {
       const { parent } = this;
       const sum = fields.reduce((acc, field) => acc + (parent[field] || 0), 0);
@@ -11,5 +11,3 @@ addMethod(number, "moreThanSumOfFields", function (fields: string[]) {
     }
   );
 });
-
-console.log("Custom Yup method loaded");

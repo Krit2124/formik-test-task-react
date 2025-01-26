@@ -10,35 +10,35 @@
 
 Для приложения была использована архитектура FSD: https://feature-sliced.design/docs/get-started/overview
 ```
-- src/ 					// Главная папка с исходным кодом приложения
-  - app/ 					// Входная точка приложения и основные настройки
+- src/                   // Главная папка с исходным кодом приложения
+  - app/                   // Входная точка приложения и основные настройки
   - page/
-    - MainPage/ 				// Главная страница
-  - shared/ 				// Общие модули и ресурсы
-    - hocs/ 					// HOC-компоненты
-      - withFormikField/ 			// HOC для работы с Formik-полями
-    - lib/ 						// Утилиты и вспомогательные функции
-      - showFieldsData.ts 			// Логика вывода сообщения о введённых полях
-    - ui/ 						// Библиотека компонентов
-      - Chakra/ 					// Компоненты Chakra UI
-      - FormikCheckBox/ 			// Компонент для работы с чекбоксами
-      - FormikInput/				// Компонент для работы с текстовыми полями
-      - FormikRadio/ 				// Компонент для работы с радио-кнопками
-    - validationRules/ 			// Правила и методы для валидации форм
-      - yupMethods.ts 				// Расширенные методы Yup (moreThanSumOfFields)
-      - yupSchema.ts 				// Схемы валидации Yup (сообщения об ошибках)
-  - widgets/ 				// Независимые крупные модули
-      - CustomForm/ 			// Форма с использованием Formik
-- types/ 				// Общие типы и интерфейсы TypeScript
-    - yup.d.ts 				// Типы для работы с Yup
-- .gitignore 			// Файлы и папки, игнорируемые Git
-- eslint.config.js 		// Конфигурация линтера ESLint
-- index.html 			// Основной HTML-файл
-- package.json 			// Список зависимостей и скриптов проекта
-- package-lock.json 	// Фиксация версий зависимостей для npm
-- tsconfig.json 		// Основная конфигурация TypeScript
-- tsconfig.app.json 	// Конфигурация TypeScript для приложения
-- vite.config.ts 		// Конфигурация Vite для сборки проекта
+    - MainPage/            // Главная страница
+  - shared/              // Общие модули и ресурсы
+    - hocs/                // HOC-компоненты
+      - withFormikField/     // HOC для работы с Formik-полями
+    - lib/                 // Утилиты и вспомогательные функции
+      - showFieldsData.ts    // Логика вывода сообщения о введённых полях
+    - ui/                  // Библиотека компонентов
+      - Chakra/              // Компоненты Chakra UI
+      - FormikCheckBox/      // Компонент для работы с чекбоксами
+      - FormikInput/         // Компонент для работы с текстовыми полями
+      - FormikRadio/         // Компонент для работы с радио-кнопками
+    - validationRules/    // Правила и методы для валидации форм
+      - yupMethods.ts        // Расширенные методы Yup (moreThanSumOfFields)
+      - yupSchema.ts         // Схемы валидации Yup (сообщения об ошибках)
+  - widgets/               // Независимые крупные модули
+      - CustomForm/          // Форма с использованием Formik
+- types/                 // Общие типы и интерфейсы TypeScript
+    - yup.d.ts             // Типы для работы с Yup
+- .gitignore             // Файлы и папки, игнорируемые Git
+- eslint.config.js       // Конфигурация линтера ESLint
+- index.html             // Основной HTML-файл
+- package.json           // Список зависимостей и скриптов проекта
+- package-lock.json      // Фиксация версий зависимостей для npm
+- tsconfig.json          // Основная конфигурация TypeScript
+- tsconfig.app.json      // Конфигурация TypeScript для приложения
+- vite.config.ts         // Конфигурация Vite для сборки проекта
 ```
 
 ## Отличия от задания

@@ -11,7 +11,8 @@ const validationSchema = Yup.object({
   name: Yup.string().required(),
   address: Yup.string().required(),
   floor: Yup.number().min(-1).max(Yup.ref("totalFloors")).required(),
-  totalFloors: Yup.number().min(-3).max(200).required(),
+  // В задании написано: "Мин. -3.", что странно, поэтому я поставил минимум 3, полагая, что это опечатка
+  totalFloors: Yup.number().min(3).max(200).required(),
   square: Yup.number()
     .min(0)
     .max(400)

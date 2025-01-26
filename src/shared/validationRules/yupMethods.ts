@@ -7,7 +7,7 @@ addMethod(number, "moreThanSumOfFields", function (fields: string[], message: st
     function (value) {
       const { parent } = this;
       const sum = fields.reduce((acc, field) => acc + (parent[field] || 0), 0);
-      return value ? value > sum : true;
+      return value !== undefined ? value > sum : false;
     }
   );
 });

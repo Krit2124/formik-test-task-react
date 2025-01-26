@@ -4,6 +4,7 @@ import { Form, Formik } from "formik";
 // Импортируем методы, чтобы работал moreThanSumOfFields
 import "@/shared/validationRules";
 import { Button } from "@chakra-ui/react";
+import { showFieldsData } from "@/shared/lib";
 
 const validationSchema = Yup.object({
   name: Yup.string().required(),
@@ -57,7 +58,7 @@ const CustomForm = () => {
         kitchenSquare: 0,
       }}
       validationSchema={validationSchema}
-      onSubmit={(values) => alert(values)}
+      onSubmit={(values) => showFieldsData(values)}
     >
       {() => (
         <Form className="w-[600px] flex flex-col gap-1">

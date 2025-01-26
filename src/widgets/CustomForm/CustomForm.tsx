@@ -1,10 +1,11 @@
 import * as Yup from "yup";
-import { FormikInput, FormikRadio } from "@/shared/ui";
+import { FormikInput, FormikRadio, FormikCheckBox } from "@/shared/ui";
 import { Form, Formik } from "formik";
-// Импортируем методы, чтобы работал moreThanSumOfFields
-import "@/shared/validationRules";
 import { Button } from "@chakra-ui/react";
 import { showFieldsData } from "@/shared/lib";
+
+// Импортируем методы yup, чтобы работал moreThanSumOfFields
+import "@/shared/validationRules";
 
 const validationSchema = Yup.object({
   name: Yup.string().required(),
@@ -21,6 +22,7 @@ const validationSchema = Yup.object({
     .required(),
   livingSquare: Yup.number().min(0).required(),
   kitchenSquare: Yup.number().min(0).required(),
+  agree: Yup.boolean().oneOf([true], "Необходимо согласие с условиями"),
 });
 
 // Конфигурация полей формы
@@ -56,6 +58,7 @@ const CustomForm = () => {
         square: 0,
         livingSquare: 0,
         kitchenSquare: 0,
+        agree: false,
       }}
       validationSchema={validationSchema}
       onSubmit={(values) => showFieldsData(values)}
@@ -63,7 +66,11 @@ const CustomForm = () => {
       {() => (
         <Form className="w-[600px] flex flex-col gap-1">
           {renderFields()}
-          <FormikRadio name="test" options={["1", "2", "3"]} />
+          <div className="flex justify-between ">
+            <FormikRadio name="justNumber" label="Выберите любое число" options={["1", "2", "3"]} />
+            <FormikCheckBox name="agree" label="Согласен с условиями" />
+          </div>
+          
           <Button type="submit">Сохранить</Button>
         </Form>
       )}

@@ -1,5 +1,6 @@
 export { default as FormikInput } from "./FormikInput/FormikInput";
 export { default as FormikRadio } from "./FormikRadio/FormikRadio";
+export { default as FormikCheckBox } from './FormikCheckBox/FormikCheckBox'
 export * from './Chakra/avatar'
 export * from './Chakra/checkbox'
 export * from './Chakra/close-button'

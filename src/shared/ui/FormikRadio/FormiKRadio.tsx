@@ -1,22 +1,28 @@
-import { useField } from 'formik';
-import { Radio, RadioGroup } from '../index';
+import { ChangeEvent, FC } from "react";
+import { Radio, RadioGroup } from "../index";
+import {withFormikField} from "@/shared/hocs";
 
-const FormikRadio = ({ name, options }: { name: string; options: string[] }) => {
-  const [field, meta] = useField(name);
-
-  return (
-    <div className='h-[88px] flex flex-col'>
-      <RadioGroup {...field} className='flex gap-2'>
-        {name}
-        {options.map((option) => (
-          <Radio key={option} value={option} className='cursor-pointer'>
-            {option}
-          </Radio>
-        ))}
-      </RadioGroup>
-      {meta.touched && meta.error && <span className='text-red-300'>{meta.error}</span>}
-      </div>
-  );
+type FormikRadioProps = {
+  label: string;
+  name: string;
+  options: string[];
+  value?: string;
+  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
 };
+
+const FormikRadioComponent: FC<FormikRadioProps> = ({ label, options, value, onChange, ...props }) => (
+  <div>
+    <label>{label}</label>
+    <RadioGroup {...props} value={value} onChange={onChange} className="flex gap-3">
+      {options.map((option) => (
+        <Radio key={option} value={option} className="cursor-pointer">
+          {option}
+        </Radio>
+      ))}
+    </RadioGroup>
+  </div>
+);
+
+const FormikRadio = withFormikField<FormikRadioProps>(FormikRadioComponent);
 
 export default FormikRadio;
